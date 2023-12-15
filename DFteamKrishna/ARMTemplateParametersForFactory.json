@@ -26,6 +26,9 @@
 		"HttpServer3_properties_typeProperties_url": {
 			"value": "https://raw.githubusercontent.com/navyasrisoma/inputfiles/main/flights_sample.csv"
 		},
+		"HttpServer4_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/navyasrisoma/inputfiles/main/flights_sample.csv"
+		},
 		"latestHTTP_properties_typeProperties_url": {
 			"value": "https://raw.githubusercontent.com/navyasrisoma/inputfiles/main/flights_latest.csv"
 		},

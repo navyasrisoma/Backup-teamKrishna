@@ -35,6 +35,10 @@
 			"type": "string",
 			"defaultValue": "https://raw.githubusercontent.com/navyasrisoma/inputfiles/main/flights_sample.csv"
 		},
+		"HttpServer4_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/navyasrisoma/inputfiles/main/flights_sample.csv"
+		},
 		"latestHTTP_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://raw.githubusercontent.com/navyasrisoma/inputfiles/main/flights_latest.csv"
@@ -90,6 +94,9 @@
 					},
 					"HttpServer3_properties_typeProperties_url": {
 						"value": "[parameters('HttpServer3_properties_typeProperties_url')]"
+					},
+					"HttpServer4_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer4_properties_typeProperties_url')]"
 					},
 					"latestHTTP_properties_typeProperties_url": {
 						"value": "[parameters('latestHTTP_properties_typeProperties_url')]"
