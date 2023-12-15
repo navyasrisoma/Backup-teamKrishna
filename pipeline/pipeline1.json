@@ -176,13 +176,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "flightsample",
+						"referenceName": "sampleinput",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DelimitedText2",
+						"referenceName": "DelimitedText5",
 						"type": "DatasetReference"
 					}
 				]
