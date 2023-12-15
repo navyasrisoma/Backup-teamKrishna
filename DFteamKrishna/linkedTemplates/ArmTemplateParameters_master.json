@@ -11,17 +11,23 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
+		"AzureDatabricksteamKrishna_accessToken": {
+			"value": ""
+		},
 		"AzureDataLakeStorage_properties_typeProperties_url": {
 			"value": "https://sateamkrishna.dfs.core.windows.net/"
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://sateamkrishna.dfs.core.windows.net/"
 		},
+		"AzureDatabricksteamKrishna_properties_typeProperties_existingClusterId": {
+			"value": "1215-091420-3fmfaeno"
+		},
 		"HttpServer1_properties_typeProperties_url": {
 			"value": "https://raw.githubusercontent.com/navyasrisoma/inputfiles/main/airportinputfile.csv"
 		},
 		"HttpServer2_properties_typeProperties_url": {
-			"value": "https://github.com/navyasrisoma/inputfiles/blob/main/airlines%20(2).csv"
+			"value": "https://raw.githubusercontent.com/navyasrisoma/inputfiles/main/airlines%20(2).csv"
 		},
 		"HttpServer3_properties_typeProperties_url": {
 			"value": "https://raw.githubusercontent.com/navyasrisoma/inputfiles/main/flights_sample.csv"

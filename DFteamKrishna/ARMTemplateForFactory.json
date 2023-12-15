@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
 		},
+		"AzureDatabricksteamKrishna_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksteamKrishna'"
+		},
 		"AzureDataLakeStorage_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://sateamkrishna.dfs.core.windows.net/"
@@ -23,13 +27,17 @@
 			"type": "string",
 			"defaultValue": "https://sateamkrishna.dfs.core.windows.net/"
 		},
+		"AzureDatabricksteamKrishna_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "1215-091420-3fmfaeno"
+		},
 		"HttpServer1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://raw.githubusercontent.com/navyasrisoma/inputfiles/main/airportinputfile.csv"
 		},
 		"HttpServer2_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://github.com/navyasrisoma/inputfiles/blob/main/airlines%20(2).csv"
+			"defaultValue": "https://raw.githubusercontent.com/navyasrisoma/inputfiles/main/airlines%20(2).csv"
 		},
 		"HttpServer3_properties_typeProperties_url": {
 			"type": "string",
@@ -53,7 +61,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"name": "[concat(parameters('factoryName'), '/FlightPipeline')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -314,6 +322,33 @@
 								"parameters": {}
 							}
 						]
+					},
+					{
+						"name": "teamKrishna-ETL",
+						"type": "DatabricksNotebook",
+						"dependsOn": [
+							{
+								"activity": "flight_LatestInput",
+								"dependencyConditions": [
+									"Completed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/Users/yasaswi-v_1701233235652@npgreatlearning.onmicrosoft.com/team_krishna-ETL"
+						},
+						"linkedServiceName": {
+							"referenceName": "AzureDatabricksteamKrishna",
+							"type": "LinkedServiceReference"
+						}
 					}
 				],
 				"policy": {
@@ -329,7 +364,8 @@
 				"[concat(variables('factoryId'), '/datasets/sampleinput')]",
 				"[concat(variables('factoryId'), '/datasets/DelimitedText5')]",
 				"[concat(variables('factoryId'), '/datasets/DelimitedText3')]",
-				"[concat(variables('factoryId'), '/datasets/DelimitedText4')]"
+				"[concat(variables('factoryId'), '/datasets/DelimitedText4')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricksteamKrishna')]"
 			]
 		},
 		{
@@ -635,6 +671,24 @@
 						"type": "SecureString",
 						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
 					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDatabricksteamKrishna')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-6216319973725601.1.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDatabricksteamKrishna_accessToken')]"
+					},
+					"existingClusterId": "[parameters('AzureDatabricksteamKrishna_properties_typeProperties_existingClusterId')]"
 				}
 			},
 			"dependsOn": []

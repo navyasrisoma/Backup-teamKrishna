@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
 		},
+		"AzureDatabricksteamKrishna_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksteamKrishna'"
+		},
 		"AzureDataLakeStorage_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://sateamkrishna.dfs.core.windows.net/"
@@ -23,13 +27,17 @@
 			"type": "string",
 			"defaultValue": "https://sateamkrishna.dfs.core.windows.net/"
 		},
+		"AzureDatabricksteamKrishna_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "1215-091420-3fmfaeno"
+		},
 		"HttpServer1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://raw.githubusercontent.com/navyasrisoma/inputfiles/main/airportinputfile.csv"
 		},
 		"HttpServer2_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://github.com/navyasrisoma/inputfiles/blob/main/airlines%20(2).csv"
+			"defaultValue": "https://raw.githubusercontent.com/navyasrisoma/inputfiles/main/airlines%20(2).csv"
 		},
 		"HttpServer3_properties_typeProperties_url": {
 			"type": "string",
@@ -80,11 +88,17 @@
 					"AzureDataLakeStorage1_accountKey": {
 						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
 					},
+					"AzureDatabricksteamKrishna_accessToken": {
+						"value": "[parameters('AzureDatabricksteamKrishna_accessToken')]"
+					},
 					"AzureDataLakeStorage_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage_properties_typeProperties_url')]"
 					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"AzureDatabricksteamKrishna_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('AzureDatabricksteamKrishna_properties_typeProperties_existingClusterId')]"
 					},
 					"HttpServer1_properties_typeProperties_url": {
 						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
