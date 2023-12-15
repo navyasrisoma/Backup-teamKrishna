@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://github.com/navyasrisoma/inputfiles/blob/main/airlines%20(2).csv",
+			"url": "https://raw.githubusercontent.com/navyasrisoma/inputfiles/main/airlines%20(2).csv",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
