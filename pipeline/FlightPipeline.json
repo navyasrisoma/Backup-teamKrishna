@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "FlightPipeline",
 	"properties": {
 		"activities": [
 			{
@@ -250,6 +250,33 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "teamKrishna-ETL",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "flight_LatestInput",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/yasaswi-v_1701233235652@npgreatlearning.onmicrosoft.com/team_krishna-ETL"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricksteamKrishna",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
